@@ -21,8 +21,8 @@ def test_should_display_the_current_number_of_todo_items(page: Page) -> None:
     page.locator(".new-todo").press("Enter")
     expect(page.locator(".todo-count")).to_contain_text("1")
 
-    page.locator(".new-todo").fill(TODO_ITEMS[1])
-    page.locator(".new-todo").press("Enter")
+    page.locator(".new-todo-element").fill(TODO_ITEMS[1])
+    page.locator(".new-todo-element").press("Enter")
     expect(page.locator(".todo-count")).to_contain_text("2")
 
     assert_number_of_todos_in_local_storage(page, 2)
